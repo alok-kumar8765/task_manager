@@ -1,4 +1,4 @@
-<img src="assets/banner.jpg" alt="TASK MANAGER Banner" width="100%" height="30%">
+<img src="assets/banner.jpg" alt="TASK MANAGER Banner" width="100%" height="300">
 
 # TASK MANAGER
 ---

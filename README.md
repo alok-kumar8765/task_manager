@@ -1,4 +1,4 @@
-![TASK MANAGER Banner](assets/banner.jpg)
+<img src="assets/banner.jpg" alt="TASK MANAGER Banner" width="100%" height="60%">
 
 # TASK MANAGER
 ---
@@ -148,6 +148,10 @@ for name, usage in resource.items():
 
 ---
 
+<img src="assets/unnamed.jpg" alt="ScreenShot" width="100%" height="60%">
+
+
+---
 # 🚀 **Advanced Version**
 
 ### 🔥 Web Dashboard V2 Features:

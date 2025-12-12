@@ -1,11 +1,6 @@
+![TASK MANAGER Banner](assets/banner.jpg)
 
-```
- ________    _     _      _      _     _       ____     _      _      _      _     
-|__   ___|  |A|   |S|    |K|    |M|   |A|     | N| |  | A|   | G|   | E|   | R|   
-   | |     / A \ / S \  / K \  / M \ / A \   / N| | / A \  / G \  / E \  / R \  
-   | |    |__A__| | S | | K | | M | | A |   | N| | | A | | G | | E | | R |  
-   |_|    |_____| |___| |___| |___| |___|   |__| | |___| |___| |___| |___| 
-
+# TASK MANAGER
 ---
 
 # 🖥️ **Advanced Python Task Manager – Web Dashboard V2**

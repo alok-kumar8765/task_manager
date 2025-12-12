@@ -299,7 +299,7 @@ web-dashboard-v2/
 # ⚙️ **Installation**
 
 ```bash
-git clone https://github.com/alok-kumar8765/task-manager
+git clone https://github.com/alok-kumar8765/task-manager.git
 cd web-dashboard-v2
 pip install -r requirements.txt
 ```

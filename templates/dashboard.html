@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Task Manager Dashboard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+        .chart-container {
+            width: 90%;
+            margin: auto;
+        }
+        h1 { margin-top: 20px; }
+        .btn {
+            background: #00c8ff;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🔥 Real-Time Task Manager Dashboard</h1>
+
+<a class="btn" href="/export/json">Export JSON</a>
+<a class="btn" href="/export/csv">Export CSV</a>
+
+<div class="chart-container">
+    <canvas id="cpuChart"></canvas>
+</div><br>
+
+<div class="chart-container">
+    <canvas id="memChart"></canvas>
+</div><br>
+
+<div class="chart-container">
+    <canvas id="diskChart"></canvas>
+</div><br>
+
+<script>
+    let cpuData = [];
+    let memData = [];
+    let diskData = [];
+    let labels = [];
+
+    const ctxCPU = document.getElementById('cpuChart');
+    const ctxMem = document.getElementById('memChart');
+    const ctxDisk = document.getElementById('diskChart');
+
+    let cpuChart = new Chart(ctxCPU, {
+        type: 'line',
+        data: { labels, datasets: [{ label: "CPU (%)", data: cpuData, borderColor: 'red', borderWidth: 2 }] },
+        options: { scales: { y: { beginAtZero: true, max: 100 } } }
+    });
+
+    let memChart = new Chart(ctxMem, {
+        type: 'line',
+        data: { labels, datasets: [{ label: "Memory (%)", data: memData, borderColor: 'yellow', borderWidth: 2 }] },
+        options: { scales: { y: { beginAtZero: true, max: 100 } } }
+    });
+
+    let diskChart = new Chart(ctxDisk, {
+        type: 'line',
+        data: { labels, datasets: [{ label: "Disk (%)", data: diskData, borderColor: 'cyan', borderWidth: 2 }] },
+        options: { scales: { y: { beginAtZero: true, max: 100 } } }
+    });
+
+    function updateCharts() {
+        fetch("/api/stats")
+            .then(response => response.json())
+            .then(data => {
+                labels.push("");
+                cpuData.push(data.cpu);
+                memData.push(data.memory);
+                diskData.push(data.disk);
+
+                cpuChart.update();
+                memChart.update();
+                diskChart.update();
+            });
+    }
+
+    setInterval(updateCharts, 1000);
+</script>
+
+</body>
+</html>
